@@ -69,7 +69,7 @@ h1 {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background: linear-gradient(180deg, #ff5fa3, #ff86b7);
-  color: #ffffff;
+  color: #f1e4e4;
   font-size: 1.5rem;
   font-weight: 700;
   display: flex;
@@ -98,7 +98,7 @@ h1 {
   top: 14%;
   width: 80%;
   height: 75%;
-  background: rgb(238, 117, 117);
+  background: #f482a4;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
@@ -109,7 +109,7 @@ h1 {
 }
 
 .letter.glow {
-  background: radial-gradient(circle at 20% 20%, #fff8fc, #ffffff);
+  background: radial-gradient(circle at 20% 20%, #fa98c6, #fb9ec9);
 }
 
 .envelope.open .flap {

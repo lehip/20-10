@@ -204,10 +204,11 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const emojis = ["🌹", "💖", "💞", "🌸", "💐"];
+const emojis = ["💖", "💞", "💐","🌸", "🌹"];
 let particles = [];
 
 function createParticle() {
+  if (particles.length > 40) return; // tránh tạo quá nhiều
   const emoji = emojis[Math.floor(Math.random() * emojis.length)];
   const x = Math.random() * canvas.width;
   const y = canvas.height + 40;
