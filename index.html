@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chúc mừng 20/10 - Ngày Phụ Nữ Việt Nam</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio id="bg-music" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
-  <div class="container">
-    <h1 class="blink-text">💖 Chúc mừng Ngày Phụ Nữ Việt Nam 20/10 💖</h1>
-    <p class="blink-text">Chúc cậu luôn luôn xinh đẹp như những bông hoa, dịu dàng như mùi hương hoa hồng 🌸</p>
-    <p> Có lẽ cậu hơi ngại ngùng một chút gì đó hi vọng một ngày nào đó gần nhất chúng ta có thể được gặp nhau trên quãng đời này💖</p>
-    <button id="btn-play">Phát nhạc 💕</button>
+  <div class="page">
+    <header>
+      <h1 style="font-size:40px;">Chúc mừng Ngày Phụ Nữ Việt Nam 20/10 💐</h1>
+      <p class="subtitle">Chúc bạn thật xinh đẹp, hạnh phúc và ngập tràn yêu thương.</p>
+    </header>
+
+    <main>
+      <div class="card shadow-lg">
+        <div class="envelope big" id="envelope">
+          <div class="flap glossy">Bức thư muốn gửi cậu 💖</div>
+          <div class="letter glow">
+            <h2>Gửi người con gái đáng iu,</h2>
+            <p2>
+              Chúc cậu luôn luôn xinh đẹp, ngập tràn niềm vui và yêu thương.
+              Hình như cậu có một chút ngại ngùng gì đó phải khum hay chưa sẵn gì zị, tui hy vọng rằng chúng ta sớm được gặp nhau trên quãng đời này 💖
+            </p2>
+            <p class="signature">💖 H nhỏ hơn 3000 </p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="toggleBtn" class="btn">Mở thư</button>
+          <button id="musicBtn" class="btn">Bật nhạc</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <small>Nhấn vào thiệp hoặc nút “Mở thư”. Nếu muốn nhạc, thêm <code>music.mp3</code>.</small>
+    </footer>
   </div>
 
-  <!-- Canvas hoa bay -->
-  <canvas id="flower-canvas"></canvas>
+  <canvas id="effect-canvas"></canvas>
   <script src="script.js"></script>
 </body>
 </html>

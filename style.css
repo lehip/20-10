@@ -1,108 +1,187 @@
-/* Nền hồng sáng, chữ trắng ánh hồng */
-body {
+:root {
+  --bg1: #fff0f6;
+  --bg2: #ffe6f0;
+  --accent: #e91e63;
+  --card: #ffffff;
+}
+
+html, body {
   margin: 0;
+  height: 100%;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
   overflow: hidden;
-  height: 100vh;
-  background-color: #ffb6c1;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #222;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--accent);
+  text-shadow: 0 2px 6px rgba(233, 30, 99, 0.2);
+  margin-bottom: 0.4em;
+}
+.subtitle {
+  color: #7a4b5f;
+  margin-bottom: 1.6em;
+}
+
+/* ----------------------------- THIỆP ----------------------------- */
+.card {
+  background: var(--card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(233, 30, 99, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope.big {
+  position: relative;
+  width: 500px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.envelope.big:hover {
+  transform: scale(1.03);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: linear-gradient(180deg, #ff5fa3, #ff86b7);
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  font-family: "Segoe Script", "Comic Sans MS", cursive;
-  color: #fff8f8;
-  text-align: center;
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.2, 1);
+  box-shadow: inset 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
-/* Hộp thiệp */
-/* .container {
-  position: relative;
-  z-index: 2;
-  top: 25vh;
-  max-width: 720px;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: 0 6px 35px rgba(255, 150, 180, 0.6);
-  backdrop-filter: blur(8px);
-  animation: fadeIn 2s ease;
-} */
-.container {
+
+.flap.glossy::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  max-width: 720px;
-  width: 90%;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: 0 6px 35px rgba(255, 150, 180, 0.6);
-  backdrop-filter: blur(8px);
-  animation: fadeIn 2s ease;
-}
-
-
-/* Chữ nháy nháy
-.blink-text {
-  text-shadow: 0 0 10px #d71a1a, 0 0 20px #f3298b, 0 0 30px #f11a86, 0 0 40px #ff66b2;
-  animation: glow 3s infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffe6f2, 0 0 15px #ff99cc;
-  }
-  to {
-    text-shadow: 0 0 20px #ffffff, 0 0 30px #e0d36d, 0 0 40px #eef745;
-  }
-} */
-
-/* Hiệu ứng mờ dần khi xuất hiện */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Chữ tiêu đề sáng hơn */
-h1 {
-  font-size: 2.6rem;
-  color: #f7f3f5;
-  text-shadow: 0 0 12px rgba(252, 252, 252, 0.9);
-  margin-bottom: 18px;
-}
-
-p {
-  font-size: 1.25rem;
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-}
-
-/* Nút phát nhạc */
-#btn-play {
-  background: linear-gradient(45deg, #ff66a3, #ff99cc);
-  border: none;
-  border-radius: 25px;
-  color: white;
-  padding: 12px 28px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-}
-
-#btn-play:hover {
-  background: linear-gradient(45deg, #ff3385, #ff66b3);
-  transform: scale(1.08);
-}
-
-/* Canvas hoa bay */
-#flower-canvas {
-  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.6), transparent 70%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.letter {
+  position: absolute;
+  left: 10%;
+  top: 14%;
+  width: 80%;
+  height: 75%;
+  background: rgb(238, 117, 117);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  overflow: auto;
+}
+
+.letter.glow {
+  background: radial-gradient(circle at 20% 20%, #fff8fc, #ffffff);
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------- NÚT ----------------------------- */
+.controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(233, 30, 99, 0.25);
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(233, 30, 99, 0.35);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ----------------------------- CANVAS ----------------------------- */
+#effect-canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 100;
+}
+
+/* ----------------------------- FOOTER ----------------------------- */
+footer {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #8c5b6c;
+}
+
+@media (max-width: 480px) {
+  .envelope.big {
+    width: 90%;
+    height: 260px;
+  }
+}
+
+/* Hiệu ứng phông chữ */
+h1, h2, p2, p{
+  font-family: 'Great Vibes', cursive;
+  color: #fff;
+  text-align: center;
+  text-shadow:
+    0 0 5px #ff8ac9,
+    0 0 10px #ff8ac9,
+    0 0 20px #ff8ac9,
+    0 0 40px #ff4db3,
+    0 0 80px #ff1a8c;
+  margin-top: 40px;
 }
